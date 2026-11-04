@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yunbo Wang</title>
+<meta name="description" content="Yunbo Wang: mathematics and data science at New York University, with internships in consulting and marketing and research in deep learning.">
+<style>
+  :root {
+    --columbia: #B9D9EB;
+    --columbia-soft: #EAF4FA;
+    --navy: #1D4F91;
+    --ink: #10294A;
+    --muted: #46607F;
+    --line: #D3E5F0;
+    --page: #F8FBFD;
+    --card: #FFFFFF;
+    --nav-h: 64px;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, p, ul { margin: 0; padding: 0; }
+  ul { list-style: none; }
+  a { color: var(--navy); }
+  a:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; border-radius: 6px; }
+
+  .wrap { width: min(1080px, 100%); margin: 0 auto; padding: 0 24px; }
+
+  .skip {
+    position: absolute; left: 16px; top: -60px; z-index: 20;
+    background: var(--ink); color: #fff; padding: 8px 14px; border-radius: 8px;
+  }
+  .skip:focus { top: 12px; }
+
+  /* Navigation */
+  .nav {
+    position: sticky; top: 0; z-index: 10;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap {
+    min-height: var(--nav-h);
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 2px 16px;
+  }
+  .brand { font-weight: 800; color: var(--ink); text-decoration: none; }
+  .nav ul { display: flex; gap: 4px; }
+  .nav li a {
+    display: block; padding: 7px 14px; border-radius: 999px;
+    color: var(--ink); text-decoration: none; font-weight: 600; font-size: 15px;
+    transition: background-color .15s;
+  }
+  .nav li a:hover { background: var(--columbia-soft); }
+
+  /* Hero */
+  .hero { background: var(--columbia); padding: 72px 0 64px; }
+  .hello { font-weight: 700; font-size: 19px; color: var(--navy); }
+  .hero h1 {
+    font-size: clamp(42px, 7vw, 72px);
+    line-height: 1.05; letter-spacing: -.02em; font-weight: 800;
+    margin: 6px 0 16px;
+  }
+  .intro { font-size: 21px; line-height: 1.45; max-width: 34em; }
+  .hero-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px 48px; }
+  .portrait {
+    flex: none; display: block; width: 240px; height: 240px;
+    border-radius: 50%; border: 6px solid #fff; object-fit: cover;
+  }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .links a {
+    display: inline-block; padding: 8px 18px; border-radius: 999px;
+    background: var(--ink); color: #fff; font-size: 15px; font-weight: 600;
+    text-decoration: none; transition: background-color .15s;
+  }
+  .links a:hover { background: var(--navy); }
+
+  /* Sections */
+  section[id] { scroll-margin-top: calc(var(--nav-h) + 8px); }
+  main > section { padding: 60px 0 4px; }
+  main > section:last-of-type { padding-bottom: 72px; }
+  h2 { font-size: 32px; line-height: 1.2; letter-spacing: -.01em; font-weight: 800; margin-bottom: 22px; }
+
+  .stack { display: grid; gap: 20px; }
+  .pair { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 28px;
+    min-width: 0;
+  }
+  .head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 4px 24px; flex-wrap: wrap;
+  }
+  h3 { font-size: 21px; line-height: 1.3; font-weight: 700; }
+  .role { color: var(--muted); font-weight: 500; }
+  .when { color: var(--muted); font-size: 15px; line-height: 1.5; text-align: right; }
+  .when b { display: block; font-weight: 600; color: var(--ink); }
+
+  .label {
+    margin-top: 18px; color: var(--navy);
+    font-size: 15px; font-weight: 700;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .chips li {
+    background: var(--columbia-soft); border-radius: 10px;
+    padding: 4px 12px; font-size: 15px; line-height: 1.45;
+  }
+
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px; }
+  .tiles > li {
+    background: var(--columbia-soft); border-radius: 14px;
+    padding: 18px 20px; font-size: 16px; line-height: 1.55;
+  }
+  .tiles h3 { font-size: 16px; color: var(--navy); }
+  .tiles .chips li { background: var(--card); }
+  .skills { margin-top: 0; }
+
+  .points { display: grid; gap: 10px; margin-top: 18px; font-size: 16px; line-height: 1.55; }
+  .points li { padding-left: 14px; border-left: 3px solid var(--columbia); }
+
+  footer { background: var(--columbia-soft); padding: 22px 0; font-size: 15px; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 8px 24px; flex-wrap: wrap; }
+  footer ul { display: flex; gap: 20px; flex-wrap: wrap; }
+  footer a { font-weight: 600; }
+
+  @media (max-width: 900px) {
+    .pair, .tiles { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    :root { --nav-h: 84px; }
+    .wrap { padding: 0 16px; }
+    .nav .wrap { padding-top: 8px; padding-bottom: 6px; }
+    .brand { width: 100%; }
+    .nav ul { width: 100%; justify-content: space-between; gap: 0; }
+    .nav li a { padding: 6px 8px; font-size: 14px; }
+    .nav li:first-child a { padding-left: 0; }
+    .hero { padding: 44px 0 40px; }
+    .hero-inner { flex-direction: column-reverse; align-items: flex-start; }
+    .portrait { width: 150px; height: 150px; border-width: 4px; }
+    .intro { font-size: 19px; }
+    main > section { padding-top: 44px; }
+    h2 { font-size: 27px; }
+    .card { padding: 20px; }
+    .when { text-align: left; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#education">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Yunbo Wang</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#internships">Internships</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#skills">Skills</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div>
+      <p class="hello">Hi, I’m Bonnie.</p>
+      <h1>Yunbo Wang</h1>
+      <p class="intro">Mathematics and data science at NYU, consulting and marketing internships in Shanghai, and research on predicting market volatility with deep learning.</p>
+      <p class="links">
+        <a href="https://www.linkedin.com/in/bonnie-yunbo-wang/">LinkedIn</a>
+        <a href="https://github.com/bonnie-yunbo-wang">GitHub</a>
+      </p>
+    </div>
+    <img class="portrait" src="yunbo-wang.jpg" alt="Portrait of Yunbo Wang" width="240" height="240">
+  </div>
+</div>
+
+<main>
+  <section id="education">
+    <div class="wrap">
+      <h2>Education Background</h2>
+      <article class="card">
+        <div class="head">
+          <div>
+            <h3>New York University</h3>
+            <p class="role">Bachelor of Science in Mathematics and Data Science (Double Major)</p>
+          </div>
+          <p class="when"><b>09/2021 - 05/2025</b>New York, NY</p>
+        </div>
+        <p class="label">Honors</p>
+        <ul class="chips">
+          <li>Honda-Ohio State STEM Award</li>
+        </ul>
+        <p class="label">Relevant Coursework</p>
+        <ul class="chips">
+          <li>Data Science in Python</li>
+          <li>Programming Tools for the Data Scientist</li>
+          <li>Data Structure</li>
+          <li>Object-Oriented Programming in Java</li>
+          <li>Statistics and Probability</li>
+          <li>Mathematical Analysis</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="internships">
+    <div class="wrap">
+      <h2>Internship Experience</h2>
+      <div class="stack">
+        <article class="card">
+          <div class="head">
+            <div>
+              <h3>PwC Strategy&amp;</h3>
+              <p class="role">Consultant</p>
+            </div>
+            <p class="when"><b>05/2024 - 08/2024</b>Shanghai, China</p>
+          </div>
+          <ul class="tiles">
+            <li>Conducted due diligence in the healthcare sector, which involved creating market models to evaluate market size and trends, analyzing competitive landscapes, and segmenting the market to formulate strategies.</li>
+            <li>Performed primary research, including 3 expert interviews, to gain crucial insights and validate assumptions, enhancing the credibility of our strategic recommendations.</li>
+            <li>Developed and delivered compelling presentations using PowerPoint to effectively convey synthesis to diverse audiences.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="head">
+            <div>
+              <h3>Capgemini Consulting</h3>
+              <p class="role">Consultant</p>
+            </div>
+            <p class="when"><b>07/2023 - 09/2023</b>Shanghai, China</p>
+          </div>
+          <ul class="tiles">
+            <li>Performed comprehensive analyses of industry trends, competitive environments, and changing consumer preferences for a modern tea beverage company, creating benchmarking cases used by five similar companies.</li>
+            <li>Conducted more than 10 executive interviews, financial analyses, and business mapping exercises to clarify strategic direction and key opportunities for client companies.</li>
+            <li>Contributed to the development of a strategic framework addressing organizational restructuring, innovative business model design, and marketing strategies, presented in a detailed 70-page consulting report.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="head">
+            <div>
+              <h3>Autoliv</h3>
+              <p class="role">Marketing Analyst</p>
+            </div>
+            <p class="when"><b>04/2021 - 07/2021</b>Shanghai, China</p>
+          </div>
+          <ul class="tiles">
+            <li>Implemented new marketing strategies, generated monthly press releases, presented in weekly meetings, managed media platforms and facilitated in-house marketing events.</li>
+            <li>Participated in 3 major auto shows, designed booth layouts, and pitched products to potential customers, achieving a 2% conversion rate.</li>
+            <li>Analyzed KPIs in Excel to track performance, optimized and launched five SEO campaigns, increasing consumer spending by 31%.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="wrap">
+      <h2>Research Experience</h2>
+      <div class="pair">
+        <article class="card">
+          <div class="head">
+            <h3>Google Store Consumer Behavior Prediction</h3>
+            <p class="when"><b>01/2020 - 05/2020</b></p>
+          </div>
+          <ul class="points">
+            <li>Developed a regression tree model in Python to predict consumer expenses at the Google Merchandise Store by channel, device, OS, and geo-network, achieving a transaction revenue RMSE of 1.49.</li>
+            <li>Cleaned data, handled missing values and noise, and applied one-hot encoding to prepare for simulation.</li>
+            <li>Analyzed consumer search behavior, finding most visitors come from organic, social, and direct search, with those incurring expenses mainly using referrals.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="head">
+            <h3>Predict Volatility by using deep learning</h3>
+            <p class="when"><b>03/2024 - 08/2024</b></p>
+          </div>
+          <ul class="points">
+            <li>Predicted financial market volatility using CNN, BiLSTM, and Attention Mechanism deep learning models.</li>
+            <li>Authored a research paper demonstrating advancements in volatility prediction accuracy.</li>
+            <li>Conducted research with Professor H. Mete Soner from Princeton University, applying insights to real-world scenarios.</li>
+            <li>Forecasted SDG scores and analyzed news sentiment signals for MSCI US index stocks using Deep Learning and Reinforcement Learning algorithms.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <div class="card">
+        <ul class="tiles skills">
+          <li>
+            <h3>Technical Skills</h3>
+            <ul class="chips">
+              <li>Python (NumPy, Pandas, SciPy, Matplotlib) (Advanced)</li>
+              <li>Java (util, lang, math, io) (Beginner)</li>
+              <li>Excel/PowerPoint/Word (Advanced)</li>
+            </ul>
+          </li>
+          <li>
+            <h3>Languages</h3>
+            <ul class="chips">
+              <li>English</li>
+              <li>Chinese</li>
+            </ul>
+          </li>
+          <li>
+            <h3>Interests</h3>
+            <ul class="chips">
+              <li>Skating</li>
+              <li>Skiing</li>
+              <li>Badminton</li>
+              <li>Painting</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Yunbo Wang</span>
+    <ul>
+      <li><a href="https://www.linkedin.com/in/bonnie-yunbo-wang/">LinkedIn</a></li>
+      <li><a href="https://github.com/bonnie-yunbo-wang">GitHub</a></li>
+      <li><a href="#top">Back to top</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>

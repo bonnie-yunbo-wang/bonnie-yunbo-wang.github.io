@@ -129,6 +129,16 @@
   .tiles .chips li { background: var(--card); }
   .skills { margin-top: 0; }
 
+  .project-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .project-links a {
+    display: inline-block; padding: 8px 18px; border-radius: 999px;
+    background: var(--ink); color: #fff; font-size: 15px; font-weight: 600;
+    text-decoration: none; transition: background-color .15s;
+  }
+  .project-links a:hover { background: var(--navy); }
+  .project-links a.ghost { background: var(--columbia-soft); color: var(--ink); }
+  .project-links a.ghost:hover { background: var(--columbia); }
+
   footer { background: var(--columbia-soft); padding: 22px 0; font-size: 15px; }
   footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 8px 24px; flex-wrap: wrap; }
   footer ul { display: flex; gap: 20px; flex-wrap: wrap; }
@@ -142,8 +152,8 @@
     .wrap { padding: 0 16px; }
     .nav .wrap { padding-top: 8px; padding-bottom: 6px; }
     .brand { width: 100%; }
-    .nav ul { width: 100%; justify-content: space-between; gap: 0; }
-    .nav li a { padding: 6px 8px; font-size: 14px; }
+    .nav ul { width: 100%; justify-content: space-between; flex-wrap: wrap; gap: 0; }
+    .nav li a { padding: 6px 4px; font-size: 14px; }
     .nav li:first-child a { padding-left: 0; }
     .hero { padding: 44px 0 40px; }
     .hero-inner { flex-direction: column-reverse; align-items: flex-start; }
@@ -172,6 +182,7 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
       </ul>
     </nav>
   </div>
@@ -233,7 +244,6 @@
           </ul>
           <p class="label">Honors</p>
           <ul class="chips">
-            <li>Top 10% of major</li>
             <li>University “Outstanding Student”, 4 consecutive years</li>
           </ul>
         </article>
@@ -345,6 +355,10 @@
             <p>Compared prediction accuracy and stability across multiple metrics and against baseline models, validating effectiveness through visualization and error analysis; compiled the results into a published academic paper.</p>
           </li>
         </ul>
+        <p class="project-links">
+          <a href="https://aemps.ewapub.com/article/view/25234">Read the paper</a>
+          <a class="ghost" href="portfolio.html">See all projects</a>
+        </p>
       </article>
     </div>
   </section>
@@ -396,6 +410,7 @@
     <ul>
       <li><a href="https://www.linkedin.com/in/bonnie-yunbo-wang/">LinkedIn</a></li>
       <li><a href="https://github.com/bonnie-yunbo-wang">GitHub</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="#top">Back to top</a></li>
     </ul>
   </div>

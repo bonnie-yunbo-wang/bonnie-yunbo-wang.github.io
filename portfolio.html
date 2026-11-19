@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Portfolio · Yunbo (Bonnie) Wang</title>
-<meta name="description" content="Projects and publications by Yunbo (Bonnie) Wang.">
+<meta name="description" content="Projects by Yunbo (Bonnie) Wang.">
 <style>
   :root {
     --columbia: #B9D9EB;
@@ -129,33 +129,36 @@
   .tiles .chips li { background: var(--card); }
   .skills { margin-top: 0; }
 
+  .project-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .project-links a {
+    display: inline-block; padding: 8px 18px; border-radius: 999px;
+    background: var(--ink); color: #fff; font-size: 15px; font-weight: 600;
+    text-decoration: none; transition: background-color .15s;
+  }
+  .project-links a:hover { background: var(--navy); }
+
+  .more { margin-top: 18px; font-weight: 600; }
+  .more a { text-decoration: none; }
+  .more a:hover { text-decoration: underline; }
+
   footer { background: var(--columbia-soft); padding: 22px 0; font-size: 15px; }
   footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 8px 24px; flex-wrap: wrap; }
   footer ul { display: flex; gap: 20px; flex-wrap: wrap; }
   footer a { font-weight: 600; }
 
-
-  /* Portfolio */
+  /* Portfolio gallery */
   .page-head { background: var(--columbia); padding: 56px 0 48px; }
   .page-head h1 { font-size: clamp(34px, 5.6vw, 52px); line-height: 1.1; letter-spacing: -.02em; font-weight: 800; margin: 6px 0 12px; }
-  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 20px; }
-  .project { display: flex; flex-direction: column; gap: 12px; border-top: 6px solid var(--columbia); }
-  .project .role { font-size: 15px; }
-  .pub { background: var(--columbia-soft); border-radius: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.5; }
-  .pub b { display: block; }
-  .project .links { margin-top: auto; padding-top: 8px; }
-  .project-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-  .project-links a, .project .links a {
-    display: inline-block; padding: 8px 18px; border-radius: 999px;
-    background: var(--ink); color: #fff; font-size: 15px; font-weight: 600;
-    text-decoration: none; transition: background-color .15s;
-  }
-  .project-links a:hover, .project .links a:hover { background: var(--navy); }
-  .project-links a.ghost { background: var(--columbia-soft); color: var(--ink); }
-  .project-links a.ghost:hover { background: var(--columbia); }
+  .nav a[aria-current="page"] { background: var(--columbia-soft); }
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .project { display: flex; flex-direction: column; gap: 10px; border-top: 6px solid var(--columbia); }
+  .project .summary { margin-top: 4px; }
+  .project .when { text-align: left; }
+  .project .chips { margin-top: 4px; }
+  .project .project-links { margin-top: auto; padding-top: 10px; }
 
   @media (max-width: 900px) {
-    .pair, .tiles { grid-template-columns: 1fr; }
+    .pair, .tiles, .gallery { grid-template-columns: 1fr; }
   }
   @media (max-width: 640px) {
     :root { --nav-h: 84px; }
@@ -182,15 +185,18 @@
 </style>
 </head>
 <body>
-<a class="skip" href="#projects">Skip to content</a>
+<a class="skip" href="#portfolio">Skip to content</a>
 
-<header class="nav">
+<header class="nav" id="top">
   <div class="wrap">
     <a class="brand" href="index.html">Yunbo (Bonnie) Wang</a>
-    <nav aria-label="Site">
+    <nav aria-label="Sections">
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#education">Education</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
         <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
       </ul>
     </nav>
   </div>
@@ -200,26 +206,41 @@
   <div class="wrap">
     <p class="hello">Portfolio</p>
     <h1>Projects</h1>
-    <p class="intro">A collection of my research and project work. Each card links to the full piece.</p>
+    <p class="intro">A few things I’ve built and researched. Each tile links to the full piece.</p>
   </div>
 </div>
 
 <main>
-  <section id="projects" aria-label="Projects">
+  <section id="portfolio" aria-label="Projects">
     <div class="wrap">
       <div class="gallery">
         <article class="card project">
-          <p class="label" style="margin-top:0">Research · Mar 2024 – Aug 2024</p>
           <h3>Predicting Stock Price Volatility</h3>
+          <p class="summary">CNN + BiLSTM + Attention model for stock-price volatility; published academic paper.</p>
           <p class="role">Student Researcher · Advisor: Prof. H. Mete Soner (Princeton University)</p>
-          <p>An end-to-end pipeline for stock-price volatility prediction, using CNN for local temporal patterns, BiLSTM for long-range dependencies, and an attention mechanism, evaluated against baseline models and compiled into a published academic paper.</p>
-          <p class="pub"><b>Predicting Stock Price Volatility using a CNN-BiLSTM-AM Model</b><cite>Advances in Economics, Management and Political Sciences</cite>, Vol. 198, 2025</p>
+          <p class="when"><b>Mar 2024 – Aug 2024</b></p>
           <ul class="chips">
-            <li>CNN</li>
-            <li>BiLSTM</li>
-            <li>Attention</li>
+            <li>Python</li>
+            <li>PyTorch</li>
+            <li>Time Series</li>
+            <li>Deep Learning</li>
           </ul>
-          <p class="links"><a href="https://aemps.ewapub.com/article/view/25234">Read the paper</a></p>
+          <p class="project-links"><a href="https://aemps.ewapub.com/article/view/25234">Read the paper</a></p>
+        </article>
+
+        <article class="card project">
+          <h3>Customer Churn Prediction — Mainly Grass</h3>
+          <p class="summary">Churn model and retention recommendations for a U.S. lawn care company.</p>
+          <p class="role">Project Lead, 4-person team · Client project</p>
+          <p class="when"><b>Jan 2026 – May 2026</b></p>
+          <ul class="chips">
+            <li>Python</li>
+            <li>XGBoost</li>
+            <li>SHAP</li>
+            <li>Logistic Regression</li>
+          </ul>
+          <!-- TODO: replace "#" with the report or GitHub repo link -->
+          <p class="project-links"><a href="#">View project</a></p>
         </article>
       </div>
     </div>
@@ -232,7 +253,8 @@
     <ul>
       <li><a href="https://www.linkedin.com/in/bonnie-yunbo-wang/">LinkedIn</a></li>
       <li><a href="https://github.com/bonnie-yunbo-wang">GitHub</a></li>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="#top">Back to top</a></li>
     </ul>
   </div>
 </footer>

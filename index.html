@@ -136,8 +136,10 @@
     text-decoration: none; transition: background-color .15s;
   }
   .project-links a:hover { background: var(--navy); }
-  .project-links a.ghost { background: var(--columbia-soft); color: var(--ink); }
-  .project-links a.ghost:hover { background: var(--columbia); }
+
+  .more { margin-top: 18px; font-weight: 600; }
+  .more a { text-decoration: none; }
+  .more a:hover { text-decoration: underline; }
 
   footer { background: var(--columbia-soft); padding: 22px 0; font-size: 15px; }
   footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 8px 24px; flex-wrap: wrap; }
@@ -181,8 +183,8 @@
         <li><a href="#education">Education</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="#skills">Skills</a></li>
       </ul>
     </nav>
   </div>
@@ -333,6 +335,7 @@
   <section id="projects">
     <div class="wrap">
       <h2>Projects</h2>
+      <div class="stack">
       <article class="card">
         <div class="head">
           <div>
@@ -357,9 +360,34 @@
         </ul>
         <p class="project-links">
           <a href="https://aemps.ewapub.com/article/view/25234">Read the paper</a>
-          <a class="ghost" href="portfolio.html">See all projects</a>
         </p>
       </article>
+
+      <article class="card">
+        <div class="head">
+          <div>
+            <h3>Customer Churn Prediction — Mainly Grass</h3>
+            <p class="role">Project Lead, 4-person team · Client project for Mainly Grass (U.S. lawn care company)</p>
+          </div>
+          <p class="when"><b>Jan 2026 – May 2026</b></p>
+        </div>
+        <ul class="tiles">
+          <li>
+            <h4>Data &amp; Feature Engineering</h4>
+            <p>Combined five years (2021–2025) of service visit logs, customer feedback, revenue records, technician assignments, and geocoded U.S. Census data into about 55,000 customer-year records; engineered 30+ features across customer profile, service usage, lawn condition, customer experience, revenue trends, and route density.</p>
+          </li>
+          <li>
+            <h4>Modeling &amp; Evaluation</h4>
+            <p>Built an interpretable Logistic Regression baseline and an XGBoost model tuned with RandomizedSearchCV, using a time-based train/test split and class-imbalance handling; XGBoost reached an AUC of 0.695 and raised churn recall by about 6 percentage points over the baseline.</p>
+          </li>
+          <li>
+            <h4>Churn Drivers &amp; Recommendations</h4>
+            <p>Used SHAP to explain the key churn drivers by revenue segment, built a high-risk customer tier for the retention team to prioritize, and turned the findings into retention recommendations presented to Mainly Grass.</p>
+          </li>
+        </ul>
+      </article>
+      </div>
+      <p class="more"><a href="portfolio.html">See full portfolio →</a></p>
     </div>
   </section>
 
